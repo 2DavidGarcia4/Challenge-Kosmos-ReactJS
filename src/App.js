@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import Component from "./components/Component";
 
 const App = () => {
@@ -94,12 +94,12 @@ const App = () => {
       <ul className="list" >
         {namesComponents.map(m=> {
           const deleteComponent = () => {
-            setMoveableComponents(c=> c.filter(f=> f.id != m.id))
-            setNamesComponents(c=> c.filter(f=> f.id != m.id))
+            setMoveableComponents(c=> c.filter(f=> f.id !== m.id))
+            setNamesComponents(c=> c.filter(f=> f.id !== m.id))
           }
 
           return (
-            <li className="element" style={{backgroundColor: moveableComponents.find(f=> f.id == m.id).color}} key={m.id} onClick={deleteComponent}>
+            <li className="element" style={{backgroundColor: moveableComponents.find(f=> f.id === m.id).color}} key={m.id} onClick={deleteComponent}>
               {m.name}
             </li>
           )

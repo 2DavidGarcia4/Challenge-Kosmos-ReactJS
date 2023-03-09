@@ -22,7 +22,7 @@ export default function Component({
     fetch(`https://jsonplaceholder.typicode.com/photos/${index}`).then(prom=> prom.json()).then((res)=> {
       setImageUrl(res.url)
     }).catch(()=> console.error('Error'))
-  }, [])
+  })
   // console.log({top, left, width, height})
 
   const [nodoReferencia, setNodoReferencia] = useState({
@@ -53,8 +53,8 @@ export default function Component({
       newWidth = parentBounds?.width - left;
 
     updateMoveable(id, {
-      top,
-      left,
+      top: top,
+      left: left,
       width: newWidth,
       height: newHeight,
       color,
